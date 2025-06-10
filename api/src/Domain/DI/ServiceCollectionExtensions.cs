@@ -16,5 +16,6 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IRequestHandler<InvestmentSimulationCommand, Result<CdbSimulationResult>>, InvestmentSimulationCommandHandler>();
         services.AddTransient<ICdbSimulationService, CdbSimulationService>();
         services.AddTransient<IYieldRatesProvider, FixedYieldRatesProvider>();
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
     }
 }

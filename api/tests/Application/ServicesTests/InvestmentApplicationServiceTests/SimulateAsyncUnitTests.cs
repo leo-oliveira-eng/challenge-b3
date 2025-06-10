@@ -1,8 +1,8 @@
 ﻿using Application.Services;
 using DataContracts.Requests;
-using DomAid.Mediator.Contracts;
 using Domain.Investment.Commands;
 using Domain.Investment.Documents;
+using Domain.Shared;
 using Funcfy.Monads;
 using Funcfy.Monads.Extensions;
 using Moq;
@@ -38,13 +38,16 @@ public class SimulateAsyncUnitTests
         // Arrange
         var request = new InvestmentSimulationRequestMessage { Amount = 1000m, Duration = 12 };
         var cts = new CancellationTokenSource();
-        cts.Cancel();
+        await cts.CancelAsync();
 
         // Act
         var act = () => service.SimulateAsync(request, cts.Token);
 
         // Assert
         await act.ShouldThrowAsync<OperationCanceledException>();
+
+        // Cleanup
+        cts.Dispose();
     }
 
     [Fact]
@@ -54,7 +57,7 @@ public class SimulateAsyncUnitTests
         var request = new InvestmentSimulationRequestMessage { Amount = 1000m, Duration = 12 };
         var failedResult = Result<CdbSimulationResult>.Create().WithServerError("Any error message", "ERR-001");
         mediatorMock
-            .Setup(m => m.SendAsync<InvestmentSimulationCommand, Result<CdbSimulationResult>>(It.IsAny<InvestmentSimulationCommand>()))
+            .Setup(m => m.SendAsync<InvestmentSimulationCommand, Result<CdbSimulationResult>>(It.IsAny<InvestmentSimulationCommand>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(failedResult);
 
         // Act
@@ -74,7 +77,7 @@ public class SimulateAsyncUnitTests
         var successResult = Result<CdbSimulationResult>.Success(simulationResult);
 
         mediatorMock
-            .Setup(m => m.SendAsync<InvestmentSimulationCommand, Result<CdbSimulationResult>>(It.IsAny<InvestmentSimulationCommand>()))
+            .Setup(m => m.SendAsync<InvestmentSimulationCommand, Result<CdbSimulationResult>>(It.IsAny<InvestmentSimulationCommand>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(successResult);
 
         // Act

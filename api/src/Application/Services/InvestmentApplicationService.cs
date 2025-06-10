@@ -2,9 +2,9 @@
 using Application.Services.Contracts;
 using DataContracts.Requests;
 using DataContracts.Responses;
-using DomAid.Mediator.Contracts;
 using Domain.Investment.Commands;
 using Domain.Investment.Documents;
+using Domain.Shared;
 using Funcfy.Monads;
 using Funcfy.Monads.Extensions;
 
@@ -23,7 +23,7 @@ public class InvestmentApplicationService(IMediatorHandler mediator) : IInvestme
 
         var command = new InvestmentSimulationCommand(request.Amount, request.Duration);
 
-        var commandResult = await mediator.SendAsync<InvestmentSimulationCommand, Result<CdbSimulationResult>>(command);
+        var commandResult = await mediator.SendAsync<InvestmentSimulationCommand, Result<CdbSimulationResult>>(command, cancellationToken);
 
         if (commandResult.Failed)
             return result.MergeMessagesFrom(commandResult);

@@ -31,7 +31,7 @@ public class HandleUnitTests
     public async Task Handle_ShouldReturnBadRequest_WhenCommandValidationFails()
     {
         // Arrange
-        var command = new InvestmentSimulationCommandFake(amount: 0).Generate();
+        var command = InvestmentSimulationCommandFake.Create(amount: 0);
 
         // Act
         var result = await _handler.Handle(command, CancellationToken.None);
@@ -46,9 +46,9 @@ public class HandleUnitTests
     public async Task Handle_WhenTokenHasBeenCanceled_ShouldThrowAnException()
     {
         // Arrange
-        var request = new InvestmentSimulationCommandFake().Generate();
+        var request = InvestmentSimulationCommandFake.Create();
         var tokenSource = new CancellationTokenSource();
-        tokenSource.Cancel();
+        await tokenSource.CancelAsync();
 
         // Act
         var act = () => _handler.Handle(request, tokenSource.Token);
@@ -56,13 +56,15 @@ public class HandleUnitTests
         // Assert
         await act.ShouldThrowAsync<OperationCanceledException>();
 
+        // Cleanup
+        tokenSource.Dispose();
     }
 
     [Fact]
     public async Task Handle_WhenTaxRateNotFound_ShouldReturnBadRequest()
     {
         // Arrange
-        var request = new InvestmentSimulationCommandFake().Generate();
+        var request = InvestmentSimulationCommandFake.Create();
 
         _taxBracketRepositoryMock
             .Setup(x => x.GetTaxRateAsync(It.IsAny<int>()))
@@ -70,7 +72,7 @@ public class HandleUnitTests
 
         _yieldRatesProviderMock
             .Setup(x => x.GetAsync())
-            .ReturnsAsync(Maybe<YieldRates>.Empty());
+            .ReturnsAsync(new YieldRates(cdi: 0.01m, tb: 2m));
 
         // Act
         var result = await _handler.Handle(request, CancellationToken.None);
@@ -84,7 +86,7 @@ public class HandleUnitTests
     public async Task Handle_WhenYieldRatesNotFound_ShouldReturnServerError()
     {
         // Arrange
-        var request = new InvestmentSimulationCommandFake().Generate();
+        var request = InvestmentSimulationCommandFake.Create();
 
         _taxBracketRepositoryMock
             .Setup(x => x.GetTaxRateAsync(It.IsAny<int>()))
@@ -106,7 +108,7 @@ public class HandleUnitTests
     public async Task Handle_WhenValidCommand_ShouldReturnSimulationResult()
     {
         // Arrange
-        var request = new InvestmentSimulationCommand(amount: 1000, duration: 12);
+        var request = InvestmentSimulationCommandFake.Create(amount: 1000, duration: 12);
         var taxRate = 0.5m;
         var yieldRates = new YieldRates(cdi: 0.01m, tb: 2m);
         var expectedResult = new CdbSimulationResultFake(request.Amount, request.Duration, taxRate, yieldRates.Cdi, yieldRates.Tb).Generate();

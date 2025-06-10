@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSupport", "api\tests\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContracts", "api\src\DataContracts\DataContracts.csproj", "{FE29B0B7-0FFA-47DA-97C6-3C04387E0262}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.Tests", "api\tests\Infra.Persistence.Tests\Infra.Persistence.Tests.csproj", "{1E82D807-F295-4FA7-B331-39E8FFE4A81D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.CrossCutting.Tests", "api\tests\Infra.CrossCutting.Tests\Infra.CrossCutting.Tests.csproj", "{5561CB13-602C-4DA1-9146-1E23BCE60857}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{FE29B0B7-0FFA-47DA-97C6-3C04387E0262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE29B0B7-0FFA-47DA-97C6-3C04387E0262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE29B0B7-0FFA-47DA-97C6-3C04387E0262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E82D807-F295-4FA7-B331-39E8FFE4A81D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E82D807-F295-4FA7-B331-39E8FFE4A81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E82D807-F295-4FA7-B331-39E8FFE4A81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E82D807-F295-4FA7-B331-39E8FFE4A81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5561CB13-602C-4DA1-9146-1E23BCE60857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5561CB13-602C-4DA1-9146-1E23BCE60857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5561CB13-602C-4DA1-9146-1E23BCE60857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5561CB13-602C-4DA1-9146-1E23BCE60857}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +104,8 @@ Global
 		{FDBF8DFA-AC65-4130-D0C4-4D8088F8D1D0} = {B489521C-74E8-423B-8EA0-90C9CA264C64}
 		{78F25D5D-D8E1-4BFE-B11B-AC8C5CE60A76} = {B489521C-74E8-423B-8EA0-90C9CA264C64}
 		{FE29B0B7-0FFA-47DA-97C6-3C04387E0262} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1E82D807-F295-4FA7-B331-39E8FFE4A81D} = {B489521C-74E8-423B-8EA0-90C9CA264C64}
+		{5561CB13-602C-4DA1-9146-1E23BCE60857} = {B489521C-74E8-423B-8EA0-90C9CA264C64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD4CD044-3577-4513-BEF0-C00C3B0F7DFE}

@@ -4,7 +4,7 @@ services:
     image: ${DOCKER_REGISTRY-}api
     build:
       context: .
-      dockerfile: src/Api/Dockerfile
+      dockerfile: src/Api/Dockerfile.tests
     ports:
       - "8085:8080"
     environment:

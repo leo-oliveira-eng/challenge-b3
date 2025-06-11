@@ -1,0 +1,257 @@
+<div class="container my-4">
+  <div class="card shadow-sm" style="background: #f8f5ff">
+    <div class="card-body">
+      <div *ngIf="!result">
+        <h5 class="card-title fw-bold mb-4">Simulador Investimeto em CDB</h5>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="form-label">Valor inicial</label>
+              <div class="input-group">
+                <span class="input-group-text">R$</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="amount"
+                  min="0"
+                  step="0.01"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Período em meses</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="duration"
+                  min="2"
+                  step="1"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="form-label">
+                Taxa do CDI
+                <span
+                  tabindex="0"
+                  data-bs-toggle="tooltip"
+                  title="Informe a taxa de juros em percentual."
+                >
+                  <i class="bi bi-question-circle"></i>
+                </span>
+              </label>
+              <div class="input-group">
+                <span class="form-control bg-light">
+                  {{ form.get("interestRate")?.value * 100 | number : "1.2-2" }}
+                </span>
+                <span class="input-group-text">%</span>
+                <span class="input-group-text">Mensal</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Rentabilidade do CDB</label>
+              <div class="input-group">
+                <span class="form-control bg-light">
+                  {{ form.get("taxRate")?.value * 100 | number  }}
+                </span>
+                <span class="input-group-text">%</span>
+                <span class="input-group-text">CDI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button
+              type="button"
+              class="btn btn-outline-danger fw-bold me-2"
+              (click)="clear()"
+            >
+              LIMPAR
+            </button>
+            <button type="submit" class="btn btn-primary fw-bold">
+              SIMULAR
+            </button>
+          </div>
+        </form>
+
+        <div class="mt-4 p-3 rounded bg-light border">
+          <h6 class="fw-bold mb-2">Como utilizar o simulador</h6>
+          <ul class="mb-3">
+            <li>
+              Informe o <strong>valor inicial</strong> que será investido.
+            </li>
+            <li>
+              Defina o <strong>período em meses</strong> para o cálculo da
+              simulação.
+            </li>
+            <li>
+              Os campos <strong>Taxa do CDI</strong> e
+              <strong>Prêmio do CDB</strong> já vêm preenchidos com os valores
+              padrões utilizados para a simulação.
+            </li>
+            <li>Clique em <strong>SIMULAR</strong> para ver o resultado.</li>
+            <li>
+              Use o botão <strong>LIMPAR</strong> para reiniciar o formulário.
+            </li>
+          </ul>
+          <h6 class="fw-bold mb-2">Regras da simulação</h6>
+          <ul class="mb-0">
+            <li>
+              O cálculo considera juros compostos com capitalização mensal.
+            </li>
+            <li>
+              O valor da <strong>Taxa do CDI</strong> é fixo e não pode ser
+              alterado pelo usuário.
+            </li>
+            <li>
+              O <strong>Prêmio do CDB</strong> é aplicado sobre o CDI,
+              representando o percentual do CDI pago pelo título.
+            </li>
+            <li>
+              Valores de imposto de renda são calculados automaticamente
+              considerando a tabela regressiva de IR para investimentos em renda
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="result">
+        <button
+          class="btn btn-primary mb-5 fw-bold d-flex justify-content-right"
+          (click)="doAnotherSimulation()"
+        >
+          &#8592; FAZER OUTRA SIMULAÇÃO
+        </button>
+
+        <h5 class="fw-bold mb-3">Dados da simulação</h5>
+        <div class="row mb-4">
+          <div class="col-md-3 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body p-3">
+                <div class="text-muted small">Valor investido</div>
+                <div class="fw-bold fs-5">
+                  R$ {{ result.initialAmount | number : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body p-3">
+                <div class="text-muted small">CDI mensal</div>
+                <div class="fw-bold fs-5">
+                  {{
+                    form.get("interestRate")?.value * 100 | number : "1.2-2"
+                  }}%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body p-3">
+                <div class="text-muted small">Período em</div>
+                <div class="fw-bold fs-5">{{ result.duration }} meses</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body p-3">
+                <div class="text-muted small">Rentabilidade</div>
+                <div class="fw-bold fs-5">
+                  {{ form.get("taxRate")?.value * 100 | number }}% CDI
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- Resultados -->
+        <h5 class="fw-bold">Resultado</h5>
+        <div class="row mb-4">
+          <div class="col-md-4 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body">
+                <div class="text-muted">Valor total</div>
+                <div class="fw-bold fs-3">
+                  R$ {{ result.grossAmount | number : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body">
+                <div class="text-muted">Valor investido</div>
+                <div class="fw-bold fs-3">
+                  R$ {{ result.initialAmount | number : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body">
+                <div class="text-muted">Total em juros</div>
+                <div class="fw-bold fs-3 text-success">
+                  R$ {{ result.totalInterest | number : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md-4 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body">
+                <div class="text-muted">Valor líquido</div>
+                <div class="fw-bold fs-3">
+                  R$ {{ result.netAmount | number : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body">
+                <div class="text-muted">Imposto</div>
+                <div class="fw-bold fs-3">
+                  R$ {{ result.taxAmount | number : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <div class="card text-center shadow-sm">
+              <div class="card-body">
+                <div class="text-muted">Alíquota de imposto</div>
+                <div class="fw-bold fs-3">
+                  {{ result.taxRate | percent : "1.2-2" }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="max-width: 400px; margin: 0 auto">
+          <canvas
+            baseChart
+            [type]="pieChartType"
+            [data]="pieChartData"
+            [options]="pieChartOptions"
+            width="350"
+            height="350"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

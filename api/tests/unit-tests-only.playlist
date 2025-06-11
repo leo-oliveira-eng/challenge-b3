@@ -1,0 +1,263 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="Application.Tests" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Application.Tests.DITests.ServiceCollectionExtensionsTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="AddApplicationServicesUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Application.Tests.DITests.ServiceCollectionExtensionsTests.AddApplicationServicesUnitTests.AddApplicationServices_ShouldRegisterServicesCorrectly" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Application.Tests.DITests.ServiceCollectionExtensionsTests.AddApplicationServicesUnitTests.AddApplicationServices_ShouldRegisterServicesCorrectly(serviceType: typeof(Application.Services.Contracts.IInvestmentApplicationService), lifetime: Scoped)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="SimulateAsyncUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenCancelled_ShouldThrowOperationCanceledException" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenCancelled_ShouldThrowOperationCanceledException" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenCommandResultHasError_ShouldReturnMergedResult" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenCommandResultHasError_ShouldReturnMergedResult" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenCommandSucceeds_ShouldReturnSimulationResponse" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenCommandSucceeds_ShouldReturnSimulationResponse" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenRequestIsNull_ShouldReturnBadRequest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Application.Tests.ServicesTests.InvestmentApplicationServiceTests.SimulateAsyncUnitTests.SimulateAsync_WhenRequestIsNull_ShouldReturnBadRequest" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+        <Rule Match="All">
+          <Property Name="Project" Value="Domain.Tests" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Domain.Tests.DITests.ServiceCollectionExtensionsTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="AddDomainServicesUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.DITests.ServiceCollectionExtensionsTests.AddDomainServicesUnitTests.AddDomainServices_ShouldRegisterServicesCorrectly" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.DITests.ServiceCollectionExtensionsTests.AddDomainServicesUnitTests.AddDomainServices_ShouldRegisterServicesCorrectly(serviceType: typeof(Domain.Investment.Services.Contracts.ICdbSimulationService), lifetime: Transient)" />
+                        <Property Name="DisplayName" Value="Domain.Tests.DITests.ServiceCollectionExtensionsTests.AddDomainServicesUnitTests.AddDomainServices_ShouldRegisterServicesCorrectly(serviceType: typeof(Domain.Investment.Services.Contracts.IYieldRatesProvider), lifetime: Transient)" />
+                        <Property Name="DisplayName" Value="Domain.Tests.DITests.ServiceCollectionExtensionsTests.AddDomainServicesUnitTests.AddDomainServices_ShouldRegisterServicesCorrectly(serviceType: typeof(MediatR.IRequestHandler&lt;InvestmentSimulationCommand, Result&lt;CdbSimulationResult&gt;&gt;), lifetime: Transient)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="ValidateUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.ValidateUnitTests.Validate_InvalidCommand_ReturnsBadRequestResult" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.ValidateUnitTests.Validate_InvalidCommand_ReturnsBadRequestResult" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.ValidateUnitTests.Validate_ValidCommand_ReturnsSuccessResult" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.ValidateUnitTests.Validate_ValidCommand_ReturnsSuccessResult" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="HandleUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_ShouldReturnBadRequest_WhenCommandValidationFails" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_ShouldReturnBadRequest_WhenCommandValidationFails" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenTaxRateNotFound_ShouldReturnBadRequest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenTaxRateNotFound_ShouldReturnBadRequest" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenTokenHasBeenCanceled_ShouldThrowAnException" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenTokenHasBeenCanceled_ShouldThrowAnException" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenValidCommand_ShouldReturnSimulationResult" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenValidCommand_ShouldReturnSimulationResult" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenYieldRatesNotFound_ShouldReturnServerError" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.CommandsTests.InvestmentSimulationCommandTests.CommandHandlerTests.HandleUnitTests.Handle_WhenYieldRatesNotFound_ShouldReturnServerError" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Domain.Tests.InvestmentTests.ServicesTests.CdbSimulationServiceTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="SimulateUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.ServicesTests.CdbSimulationServiceTests.SimulateUnitTests.Simulate_ShouldReturnCorrectSimulationResult" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.ServicesTests.CdbSimulationServiceTests.SimulateUnitTests.Simulate_ShouldReturnCorrectSimulationResult" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Domain.Tests.InvestmentTests.ServicesTests.FixedYieldRatesProviderTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="GetAsyncUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Domain.Tests.InvestmentTests.ServicesTests.FixedYieldRatesProviderTests.GetAsyncUnitTests.GetAsync_ShouldReturnFixedYieldRates_WhenCalled" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Domain.Tests.InvestmentTests.ServicesTests.FixedYieldRatesProviderTests.GetAsyncUnitTests.GetAsync_ShouldReturnFixedYieldRates_WhenCalled" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+        <Rule Match="All">
+          <Property Name="Project" Value="Infra.CrossCutting.Tests" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Infra.CrossCutting.Tests.BusTests.InternalBusTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="SendAsyncUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Infra.CrossCutting.Tests.BusTests.InternalBusTests.SendAsyncUnitTests.SendAsync_WhenSendAsyncIsCalled_ShouldSendCommandByMediator" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Infra.CrossCutting.Tests.BusTests.InternalBusTests.SendAsyncUnitTests.SendAsync_WhenSendAsyncIsCalled_ShouldSendCommandByMediator" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Infra.CrossCutting.Tests.DITests.ServiceCollectionExtensionsTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="AddCrossCuttingServicesUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Infra.CrossCutting.Tests.DITests.ServiceCollectionExtensionsTests.AddCrossCuttingServicesUnitTests.AddCrossCuttingServices_ShouldRegisterServicesCorrectly" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Infra.CrossCutting.Tests.DITests.ServiceCollectionExtensionsTests.AddCrossCuttingServicesUnitTests.AddCrossCuttingServices_ShouldRegisterServicesCorrectly(serviceType: typeof(Domain.Shared.IMediatorHandler), lifetime: Scoped)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+        <Rule Match="All">
+          <Property Name="Project" Value="Infra.Persistence.Tests" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Infra.Persistence.Tests.DITests.ServiceCollectionExtensionsTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="AddPersistenceServicesUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Infra.Persistence.Tests.DITests.ServiceCollectionExtensionsTests.AddPersistenceServicesUnitTests.AddPersistenceServices_ShouldRegisterServicesCorrectly" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.DITests.ServiceCollectionExtensionsTests.AddPersistenceServicesUnitTests.AddPersistenceServices_ShouldRegisterServicesCorrectly(serviceType: typeof(Domain.Taxation.Repositories.ITaxBracketRepository), lifetime: Scoped)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="GetTaxRateAsyncUnitTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 1, expectedTaxRate: 0,225)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 10, expectedTaxRate: 0,2)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 12, expectedTaxRate: 0,2)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 13, expectedTaxRate: 0,175)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 2147483647, expectedTaxRate: 0,15)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 24, expectedTaxRate: 0,175)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 25, expectedTaxRate: 0,15)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 36, expectedTaxRate: 0,15)" />
+                        <Property Name="DisplayName" Value="Infra.Persistence.Tests.RepositoriesTests.InMemoryTaxBracketRepositoryTests.GetTaxRateAsyncUnitTests.GetTaxRateAsync_ShouldReturnCorrectTaxRate(duration: 6, expectedTaxRate: 0,225)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>

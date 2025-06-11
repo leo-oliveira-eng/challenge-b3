@@ -21,6 +21,6 @@ public abstract class AbstractController : ControllerBase
 				Message = "An unexpected error occurred.",
 				Details = ex.Message
 			});
-        }
+		}
     }
 }

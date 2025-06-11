@@ -6,14 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers;
 
 [ApiController, Route("api/[controller]")]
-public class InvestmentController : AbstractController
+public class InvestmentController(IInvestmentApplicationService investmentApplicationService) : AbstractController
 {
-    private readonly IInvestmentApplicationService _investmentApplicationService;
-
-    public InvestmentController(IInvestmentApplicationService investmentApplicationService)
-    {
-        _investmentApplicationService = investmentApplicationService;
-    }
+    private readonly IInvestmentApplicationService _investmentApplicationService = investmentApplicationService;
 
     [HttpPost("simulate"), ProducesResponseType(typeof(CdbSimulationResponseMessage), 200)]
     public async Task<IActionResult> Simulate([FromBody] InvestmentSimulationRequestMessage requestMessage, CancellationToken cancellationToken)

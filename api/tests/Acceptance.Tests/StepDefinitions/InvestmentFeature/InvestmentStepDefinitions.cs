@@ -6,20 +6,14 @@ using System.Net.Http.Json;
 namespace Acceptance.Tests.StepDefinitions.InvestmentFeature;
 
 [Binding, Scope(Feature = "Investment")]
-public class InvestmentStepDefinitions
+public class InvestmentStepDefinitions(HttpClient httpClient, ScenarioContext scenarioContext)
 {
     private const string requestMessagesKey = "InvestmentSimulationRequestMessage";
     private const string contextResponseKey = "InvestmentSimulationHttpResponses";
     private const string contentResponsesKey = "InvestmentSimulationContentResponses";
 
-    private HttpClient HttpClient { get; }
-    private ScenarioContext ScenarioContext { get; }
-
-    public InvestmentStepDefinitions(HttpClient httpClient, ScenarioContext scenarioContext)
-    {
-        HttpClient = httpClient;
-        ScenarioContext = scenarioContext;
-    }
+    private HttpClient HttpClient { get; } = httpClient;
+    private ScenarioContext ScenarioContext { get; } = scenarioContext;
 
     [Given("the following request message")]
     public void GivenTheFollowingRequestMessage(DataTable table)

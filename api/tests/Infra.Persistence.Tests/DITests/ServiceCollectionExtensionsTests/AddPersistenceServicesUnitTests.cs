@@ -8,7 +8,7 @@ namespace Infra.Persistence.Tests.DITests.ServiceCollectionExtensionsTests;
 public class AddPersistenceServicesUnitTests
 {
     [Theory]
-    [InlineData(typeof(ITaxBracketRepository), ServiceLifetime.Scoped)]
+    [InlineData(typeof(ITaxBracketRepository), ServiceLifetime.Transient)]
     public void AddPersistenceServices_ShouldRegisterServicesCorrectly(Type serviceType, ServiceLifetime lifetime)
     {
         // Arrange

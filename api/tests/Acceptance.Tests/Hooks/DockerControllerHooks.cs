@@ -7,21 +7,15 @@ using System.Net;
 namespace Acceptance.Tests.Hooks;
 
 [Binding]
-public class DockerControllerHooks
+public class DockerControllerHooks(IObjectContainer objectContainer)
 {
     #region Properties
 
     static ICompositeService CompositeService { get; set; } = null!;
-    IObjectContainer ObjectContainer { get; }
+    IObjectContainer ObjectContainer { get; } = objectContainer;
 
     #endregion
-
     #region Constructors
-
-    public DockerControllerHooks(IObjectContainer objectContainer)
-    {
-        ObjectContainer = objectContainer;
-    }
 
     #endregion
 

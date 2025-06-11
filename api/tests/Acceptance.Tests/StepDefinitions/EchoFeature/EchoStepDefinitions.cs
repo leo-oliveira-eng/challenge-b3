@@ -6,18 +6,12 @@ using System.Net;
 namespace Acceptance.Tests.StepDefinitions.EchoFeature;
 
 [Binding, Scope(Feature = "echo")]
-public class EchoStepDefinitions
+public class EchoStepDefinitions(HttpClient httpClient, ScenarioContext scenarioContext)
 {
     const string contextResponseKey = "GetEchoResponseMessage";
 
-    private HttpClient HttpClient { get; }
-    private ScenarioContext ScenarioContext { get; }
-
-    public EchoStepDefinitions(HttpClient httpClient, ScenarioContext scenarioContext)
-    {
-        HttpClient = httpClient;
-        ScenarioContext = scenarioContext;
-    }
+    private HttpClient HttpClient { get; } = httpClient;
+    private ScenarioContext ScenarioContext { get; } = scenarioContext;
 
     [When("a request is sent to {string} route")]
     public async Task WhenARequestIsSentToRoute(string route)

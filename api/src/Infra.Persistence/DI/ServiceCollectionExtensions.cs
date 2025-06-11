@@ -8,6 +8,6 @@ public static class ServiceCollectionExtensions
 {
     public static void AddPersistenceServices(this IServiceCollection services)
     {
-        services.AddScoped<ITaxBracketRepository, InMemoryTaxBracketRepository>();
+        services.AddTransient<ITaxBracketRepository, InMemoryTaxBracketRepository>();
     }
 }

@@ -92,6 +92,8 @@ npm start
 ```
 O Angular estará disponível em http://localhost:4200.
 
+---
+
 ## Testes
 - Testes unitários (.NET) podem ser executados via:
 ```bash
@@ -110,6 +112,7 @@ reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coveragereport"
 Isso vai criar uma pasta chamada coveragereport com um arquivo index.html.
 Abra esse arquivo no navegador e visualize o relatório!
 
+---
 
 ## Decisões Técnicas do Projeto
 ### Clean Architecture
@@ -176,6 +179,8 @@ Além dessas, utilizei duas bibliotecas de minha autoria:
 O uso do Result Pattern nessas bibliotecas garante que operações retornem estados explícitos (sucesso/falha), facilitando o fluxo de mensagens e a integração entre as camadas, além de simplificar a manipulação de erros.
 
 Essas bibliotecas ainda estão em desenvolvimento mas serviram a uma combinação de ferramentas que permitiu uma arquitetura robusta, fácil de testar e evoluir, atendendo aos critérios de qualidade e boas práticas do desafio.
+
+---
 
 ## Observações
 Todos os cálculos seguem fielmente as regras do enunciado.

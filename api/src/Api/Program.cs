@@ -28,11 +28,8 @@ var app = builder.Build();
 
 app.UseCors("AddCorsPolicy");
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

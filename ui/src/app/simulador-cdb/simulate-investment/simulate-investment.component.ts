@@ -61,7 +61,8 @@ export class SimulateInvestmentComponent implements OnInit {
           ];
         },
         error: (error) => {
-          console.error('Error occurred during simulation:', error);
+          alert(
+            'Erro ao realizar a simulação. Por favor, tente novamente.' + ` ${error?.error?.messages[0]?.content}`);
         },
       });
     } else {

@@ -28,12 +28,12 @@ public class SimulateUnitTests
 
         // Assert
         result.InitialAmount.ShouldBe(initialAmount);
-        result.GrossAmount.ShouldBe(1123.0820949653m, 0.0000000001m);
-        result.NetAmount.ShouldBe(1104.6197807205m, 0.0000000001m);
-        result.TaxAmount.ShouldBe(18.4623142448m, 0.0000000001m);
+        result.GrossAmount.ShouldBe(1123.08m);
+        result.NetAmount.ShouldBe(1104.62m);
+        result.TaxAmount.ShouldBe(18.46m);
         result.TaxRate.ShouldBe(taxRate);
         result.Duration.ShouldBe(durationInMonths);
-        result.MonthlyRate.ShouldBe(cdi * tb);
-        result.TotalInterest.ShouldBe(123.0820949653m, 0.0000000001m);
+        result.MonthlyRate.ShouldBe(0.0097m);
+        result.TotalInterest.ShouldBe(123.08m);
     }
 }

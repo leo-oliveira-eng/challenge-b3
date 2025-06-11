@@ -3,8 +3,8 @@
 namespace Api.Controllers;
 
 [ApiController, Route("api/[controller]")]
-public class MeController : ControllerBase
+public class EchoController : ControllerBase
 {
-    [HttpGet]
+    [HttpGet, ProducesResponseType(typeof(object), 200)]
     public IActionResult Get() => Ok(new { name = "CDB Yield Simulator", version = "1.0.0" });
 }

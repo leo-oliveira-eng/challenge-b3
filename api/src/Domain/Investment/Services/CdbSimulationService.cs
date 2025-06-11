@@ -15,14 +15,14 @@ public sealed class CdbSimulationService : ICdbSimulationService
         var netAmount = grossAmount - taxAmount;
 
         return new(
-            dto.InitialAmount,
-            grossAmount,
-            netAmount,
-            taxAmount,
-            dto.TaxRate,
+            Math.Round(dto.InitialAmount, 2, MidpointRounding.AwayFromZero),
+            Math.Round(grossAmount, 2, MidpointRounding.AwayFromZero),
+            Math.Round(netAmount, 2, MidpointRounding.AwayFromZero),
+            Math.Round(taxAmount, 2, MidpointRounding.AwayFromZero),
+            Math.Round(dto.TaxRate, 4, MidpointRounding.AwayFromZero),
             dto.DurationInMonths,
-            monthlyRate,
-            totalInterest
+            Math.Round(monthlyRate, 4, MidpointRounding.AwayFromZero),
+            Math.Round(totalInterest, 2, MidpointRounding.AwayFromZero)
         );
     }
 

@@ -404,3 +404,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/api/tests/Acceptance.Tests/Features/echo.feature.cs
+/api/tests/Acceptance.Tests/Features/Investment.feature.cs

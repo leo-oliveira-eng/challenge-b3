@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Application.DI;
 public static class ServiceCollectionExtensions
 {
-    public static void AddApplicationServices(this ServiceCollection services)
+    public static void AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<IInvestmentApplicationService, InvestmentApplicationService>();
     }
